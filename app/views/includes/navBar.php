@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
     <div class="container">
-        <a class="navbar-brand" href="<?php echo URLROOT ?>"><?php echo SITENAME ?></a>
+        <a class="navbar-brand" href="<?php echo URLROOT ?>/index"><?php echo SITENAME ?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -9,10 +9,10 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo URLROOT ?>">Home</a>
+                    <a class="nav-link" href="<?php echo URLROOT ?>/index">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo URLROOT ?>/pages/about">About</a>
+                    <a class="nav-link" href="<?php echo URLROOT ?>/page/about">About</a>
                 </li>
             </ul>
 
