@@ -9,10 +9,13 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo URLROOT ?>/index">Home</a>
+                    <a class="nav-link" href="<?php echo URLROOT ?>/posts/index">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo URLROOT ?>/page/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo URLROOT ?>/page/contacts">Contact us</a>
                 </li>
             </ul>
 
