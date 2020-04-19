@@ -4,6 +4,8 @@ require_once 'config/config.php';
 // Loading helpers
 require_once 'helpers/url_helper.php';
 require_once 'helpers/session_flash_message.php';
+// Loading PHP_Mailer (! installed with composer !)
+require_once 'vendor/autoload.php';
 
 // Loading libraries
 // require_once 'libs/core.php';
