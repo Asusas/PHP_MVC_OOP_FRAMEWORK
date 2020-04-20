@@ -1,4 +1,10 @@
 <?php
+/*
+ * ob_start() -> While output buffering is active no output is sent from the script (other than headers),
+ * instead the output is stored in an internal buffer.
+ * This method in this project is used to send attached file from the view form.
+ */
+ob_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
 
@@ -38,6 +44,10 @@ class Page extends Controller
                 'message' => trim($_POST['message']),
                 'email' => trim($_POST['email']),
 
+                // Collecting FULL file's name and storing into temporary memory
+                'file' => $_FILES['file']['name'],
+                'file_tmp' => $_FILES['file']['tmp_name'],
+
                 'subject_error' => '',
                 'message_error' => '',
                 'email_error' => '',
@@ -65,14 +75,14 @@ class Page extends Controller
 
                     // Proceed operation
 
-                    // mail('andreliskrug@gmail.com', $data['subject'], $data['message']);
-                    // $_SESSION['success'] = 'Your email was sent successfuly';
-                    // redirect('pages/contacts');
-
                     // Collecting input fields from the form
                     $subject = $data['subject'];
                     $message = $data['message'];
                     $email = $data['email'];
+                    $file = $data['file'];
+                    $file_tmp = $data['file_tmp'];
+                    // Getting file extention from full file name
+                    $file_name = basename($file);
 
                     $mail = new PHPMailer(true);
                     $mail->SMTPDebug = 2;
@@ -81,8 +91,8 @@ class Page extends Controller
                     $mail->SMTPAuth = true;
 
                     // Localhost: set username and password (xampp->sendmail.ini configuration)
-                    $mail->Username = 'your-mail@gmail.com';
-                    $mail->Password = '******';
+                    $mail->Username = 'my_mail@gmail.com';
+                    $mail->Password = 'my-password';
 
                     $mail->SMTPSecure = 'tls';
                     $mail->Port = 587;
@@ -106,15 +116,21 @@ class Page extends Controller
                      * $mail->addAddress($receiver);
                      *
                      */
-                    $mail->addAddress('receiver@gmail.com');
-
+                    $mail->addAddress('my_mail@gmail.com');
                     $mail->IsHTML(true);
                     $mail->Subject = $subject;
                     $mail->Body = $message;
+                    $mail->addAttachment($file_tmp, $file_name);
+
                     $mail->send();
 
                     $_SESSION['success'] = 'Your email was sent successfuly';
                     redirect('pages/contacts');
+                    /*
+                     * To output what is stored in the internal buffer, ob_end_flush() is used.
+                     * In our case - attached file from the form.
+                     */
+                    ob_end_flush();
 
                 }
                 // Else - load view with errors

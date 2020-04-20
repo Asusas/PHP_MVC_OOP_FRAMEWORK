@@ -9,7 +9,7 @@
         <div class="form-group">
             <label for="subject">Subject: <sup>*</sup> </label>
             <input type="text" name="subject"
-                class=" form-control form-control-lg <?php echo (!empty($data['subject_error'])) ? 'is-invalid' : ''; ?>"
+                class=" form-control form-control-sm <?php echo (!empty($data['subject_error'])) ? 'is-invalid' : ''; ?>"
                 value="<?php echo $data['subject']; ?>">
             <span class="invalid-feedback"><?php echo $data['subject_error'] ?></span>
         </div>
@@ -17,7 +17,7 @@
         <div class="form-group">
             <label for="subject">Your email: <sup>*</sup> </label>
             <input type="email" name="email"
-                class=" form-control form-control-lg <?php echo (!empty($data['email_error'])) ? 'is-invalid' : ''; ?>"
+                class=" form-control form-control-sm <?php echo (!empty($data['email_error'])) ? 'is-invalid' : ''; ?>"
                 value="<?php echo $data['email']; ?>">
             <span class="invalid-feedback"><?php echo $data['email_error'] ?></span>
         </div>
@@ -25,14 +25,14 @@
         <div class="form-group">
             <label for="message">Message: <sup>*</sup> </label>
             <textarea name="message" type="textarea"
-                class=" form-control form-control-lg <?php echo (!empty($data['message_error'])) ? 'is-invalid' : ''; ?>"
+                class=" form-control form-control-sm <?php echo (!empty($data['message_error'])) ? 'is-invalid' : ''; ?>"
                 placeholder="Type your message" rows="7"><?php echo $data['message']; ?></textarea>
             <span class="invalid-feedback"><?php echo $data['message_error'] ?></span>
         </div>
 
         <div class="form-group">
             <label for="message">Select file: </label>
-            <input type="file" name="file" class=" form-control form-control-lg">
+            <input type="file" name="file" class=" form-control form-control-sm">
         </div>
 
 
